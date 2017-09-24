@@ -1,0 +1,13 @@
+- name:        infra01
+  protected:   true
+  box:         centos/7
+  box_version: '1708.01'
+  ram:         1024
+  ip:          172.16.1.110
+
+- name:        swarm-mgr01
+  protected:   false
+  box:         centos/7
+  box_version: '1708.01'
+  ram:         512
+  ip:          172.16.1.111
