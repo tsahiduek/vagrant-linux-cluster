@@ -1,6 +1,10 @@
 - name:        infra01
   protected:   true
+<<<<<<< HEAD
   box:         bento/centos-7.3
+=======
+  box:         centos/7
+>>>>>>> origin/master
   box_version: '1708.01'
   ram:         1024
   ip:          172.16.1.110
