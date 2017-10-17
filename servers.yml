@@ -1,17 +1,13 @@
-- name:        infra01
-  protected:   true
-<<<<<<< HEAD
-  box:         bento/centos-7.3
-=======
-  box:         centos/7
->>>>>>> origin/master
-  box_version: '1708.01'
-  ram:         1024
-  ip:          172.16.1.110
+- name:      infra01
+  protected: true
+  box:       bento/centos-7.3
+  # box_version: '201708.22.0'
+  ram:       1024
+  ip:        172.16.1.110
 
-- name:        swarm-mgr01
-  protected:   false
-  box:         centos/7
-  box_version: '1708.01'
-  ram:         512
-  ip:          172.16.1.111
+- name:      swarm-mgr01
+  protected: false
+  box:       bento/centos-7.3
+  # box_version: '201708.22.0'
+  ram:       512
+  ip:        172.16.1.111
