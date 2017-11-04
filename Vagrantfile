@@ -23,9 +23,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           srv.vm.box_check_update = false
         end
       end
+      servers["port_forwarding"].each do |pf|
+        config.vm.network "forwarded_port", guest: pf["guest_port"], host:pf["host_port"]
+      end
+
       srv.vm.box = servers["box"]
       srv.vm.hostname = servers["name"]
-      srv.vm.synced_folder servers["name"], "/home/vagrant"
+      srv.vm.synced_folder servers["name"], "/home/vagrant", create: true
 
 
       # if Vagrant.has_plugin?("vagrant-protect")
