@@ -1,4 +1,4 @@
-- name:            jenkins-master
+- name:            server1
   protected:       true
   box:             bento/centos-7.3
   # box_version:   '201708.22.0'
@@ -6,10 +6,21 @@
   ip:              172.16.1.110
   port_forwarding:
     - guest_port:  80
-      host_port:   80
+      host_port:   1080
     - guest_port:  8080
-      host_port:   8080
+      host_port:   18080
 
+- name:            server2
+  protected:       true
+  box:             bento/centos-7.3
+  # box_version:   '201708.22.0'
+  ram:             1024
+  ip:              172.16.1.111
+  port_forwarding:
+    - guest_port:  80
+      host_port:   2080
+    - guest_port:  8080
+      host_port:   28080
 
 #
 # - name:          swarm-mgr01

@@ -24,25 +24,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
       end
       servers["port_forwarding"].each do |pf|
-        config.vm.network "forwarded_port", guest: pf["guest_port"], host:pf["host_port"]
+        srv.vm.network "forwarded_port", guest: pf["guest_port"], host:pf["host_port"]
       end
 
       srv.vm.box = servers["box"]
       srv.vm.hostname = servers["name"]
       srv.vm.synced_folder servers["name"], "/home/vagrant", create: true
-
-
-      # if Vagrant.has_plugin?("vagrant-protect")
-      #   srv.protect.enabled = servers["protected"]
-      # end
-      # if Vagrant.has_plugin?("vagrant-hostmanager")
-      #   srv.hostmanager.enabled = true
-      #   srv.hostmanager.manage_host = true
-      #   srv.hostmanager.manage_guest = true
-      #   srv.hostmanager.ignore_private_ip = false
-      #   srv.hostmanager.include_offline = true
-      #   srv.hostmanager.aliases = %w("#{servers["name"]}"".localdomain "#{servers["name"]}")
-      # end
 
       srv.vm.network "private_network", ip: servers["ip"]
       # Virtaulbox specific configuration
